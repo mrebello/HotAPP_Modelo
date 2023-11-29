@@ -57,7 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="HotAPP" Version="1.0.8613.1089-beta" />
+		<PackageReference Include="HotAPP" Version="1.0.8732.1083-beta" />
 	</ItemGroup>
 
 </Project>
