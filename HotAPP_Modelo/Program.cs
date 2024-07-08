@@ -6,11 +6,11 @@ namespace HotAPP_Modelo;
 
 /// <summary>
 /// ATENÇÃO: Os assets não são copiados automaticamente.
-/// Para gerar os assets atualizados e copiar, realizar uma publicação e copiar a pasta wwwroot.
+/// Para gerar os assets atualizados e copiar, realizar uma publicação e copiar as pastas wwwroot\_content e wwwroot\_framework.
 /// </summary>
 
 
-internal class Program : HotAPP<App> {
+internal class Program : HotAPP<Razors.App> {
     [STAThread]
     private static int Main(string[] args) {
         return MainService<Program>();

@@ -37,9 +37,7 @@
 	<ItemGroup>
 		<None Remove="API.xml" />
 		<None Remove="appsettings.json" />
-		<Compile Remove="wwwroot\_content\**" />
 		<None Remove="appsettings.*.json" />
-		<None Remove="wwwroot\_content\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -47,8 +45,6 @@
 		<Content Remove="appsettings.json" />
 		<Content Remove="appsettings.*.json" />
 		<Content Remove="wwwroot\**\*.*" />
-		<Content Remove="wwwroot\_content\**" />
-		<EmbeddedResource Remove="wwwroot\_content\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -64,7 +60,10 @@
 	<ItemGroup>
 		<PackageReference Include="Azure.Identity" Version="1.12.0" />
 		<PackageReference Include="HotAPP" Version="1.0.8935.979-beta" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.0-preview.5.24306.11" />
 		<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.9.0" />
+		<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Emoji" Version="4.6.0" />
+		<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.9.0" />
 	</ItemGroup>
 
 </Project>
