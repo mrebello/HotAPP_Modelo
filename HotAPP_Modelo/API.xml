@@ -4,5 +4,11 @@
         <name>HotAPP_Modelo</name>
     </assembly>
     <members>
+        <member name="T:HotAPP_Modelo.Program">
+            <summary>
+            ATENÇÃO: Os assets não são copiados automaticamente.
+            Para gerar os assets atualizados e copiar, realizar uma publicação e copiar a pasta wwwroot.
+            </summary>
+        </member>
     </members>
 </doc>

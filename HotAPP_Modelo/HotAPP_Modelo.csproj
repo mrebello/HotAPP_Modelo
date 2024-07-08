@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Title>Aplicação HotAPP</Title>
-		<Description>Aplicação criada com o modelo de aplicação da HotAPP.</Description>
+		<Description>Aplicação criada com o modelo de aplicação da HotAPP com FluidUI.</Description>
 
 		<Copyright>Marcos Paulo Ferreira Rebello</Copyright>
 
@@ -24,6 +24,7 @@
 	<Target Name="EmbedScopedCss" BeforeTargets="BeforeResGen" DependsOnTargets="BundleScopedCssFiles">
 		<ItemGroup>
 			<EmbeddedResource Include="$(IntermediateOutputPath)scopedcss\bundle\$(AssemblyName).styles.css" LogicalName="$(AssemblyName).wwwroot.styles.css" Type="Non-Resx" WithCulture="false" />
+<!--			<EmbeddedResource Include="$(IntermediateOutputPath)win-x64\PubTmp\Out\wwwroot\**" LogicalName="$(AssemblyName).wwwroot.%(RelativeDir).%(FileName)" Type="Non-Resx" WithCulture="false" /> -->
 		</ItemGroup>
 	</Target>
 
@@ -36,7 +37,9 @@
 	<ItemGroup>
 		<None Remove="API.xml" />
 		<None Remove="appsettings.json" />
+		<Compile Remove="wwwroot\_content\**" />
 		<None Remove="appsettings.*.json" />
+		<None Remove="wwwroot\_content\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -44,10 +47,12 @@
 		<Content Remove="appsettings.json" />
 		<Content Remove="appsettings.*.json" />
 		<Content Remove="wwwroot\**\*.*" />
+		<Content Remove="wwwroot\_content\**" />
+		<EmbeddedResource Remove="wwwroot\_content\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="API.xml" />
+		<EmbeddedResource Include="API.xml" CopyToPublishDirectory="Never" />
 		<EmbeddedResource Include="appsettings.json" />
 		<EmbeddedResource Include="wwwroot\**\*.*" />
 	</ItemGroup>
@@ -57,7 +62,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="HotAPP" Version="1.0.8732.1083-beta" />
+		<PackageReference Include="Azure.Identity" Version="1.12.0" />
+		<PackageReference Include="HotAPP" Version="1.0.8935.979-beta" />
+		<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.9.0" />
 	</ItemGroup>
 
 </Project>
