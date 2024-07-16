@@ -4,9 +4,8 @@
 
 @attribute [StreamRendering]
 
-<PageTitle>Weather</PageTitle>
-
-<h1>Weather</h1>
+<PageTitle>@MenuName()</PageTitle>
+<h1>@MenuName()</h1>
 
 <p>This component demonstrates showing data.</p>
 
@@ -23,6 +22,9 @@
 }
 
 @code {
+    public static string MenuName() => "Weather";
+    public static Icon MenuIcon() => new Icons.Regular.Size20.WeatherPartlyCloudyDay();
+
     private IQueryable<WeatherForecast>? forecasts;
 
     protected override async Task OnInitializedAsync() {

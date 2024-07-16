@@ -1,13 +1,13 @@
 # HotAPI_Modelo
 
-Modelo de projeto para o Visual Studio 2022 utilizando a HotAPP.
+Modelo de projeto para o Visual Studio 2022 utilizando a HotAPP e FluentUI.
 
 A HotAPI facilita a criação de APIs web/desktop usando Blazor.
 
 Veja mais detalhes na <a href="https://github.com/mrebello/HotAPP">HotAPP</a>.
 
 
-Para instalar o modelo, use <a href="https://github.com/mrebello/HotAPI_Modelo/raw/master/HotAPP_Modelo_install.exe">este instalador</a>.
+Para instalar o modelo, use <a href="https://github.com/mrebello/HotAPI_Modelo/raw/FluentUI/HotAPP_Modelo_FluentUI_install.exe">este instalador</a>.
 
 O instalador extrai o arquivo HotAPP_Modelo.zip para a pasta
 %USERPROFILE%\Documents\Visual Studio 2022\Templates\ProjectTemplates

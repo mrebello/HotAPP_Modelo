@@ -4,8 +4,8 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Title>Aplicação HotAPP</Title>
-		<Description>Aplicação criada com o modelo de aplicação da HotAPP com FluidUI.</Description>
+		<Title>Aplicação HotAPP com FluentUI</Title>
+		<Description>Aplicação criada com o modelo de aplicação da HotAPP com FluentUI.</Description>
 
 		<Copyright>Marcos Paulo Ferreira Rebello</Copyright>
 
@@ -53,10 +53,12 @@
 		<EmbeddedResource Include="wwwroot\**\*.*" />
 	</ItemGroup>
 
+<!--
 	<ItemGroup>
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\Linux.pubxml" />
 	</ItemGroup>
-
+-->
+	
 	<ItemGroup>
 		<PackageReference Include="Azure.Identity" Version="1.12.0" />
 		<PackageReference Include="HotAPP" Version="1.0.8935.979-beta" />

@@ -6,8 +6,9 @@
     <nav class="sitenav" aria-labelledby="main-menu">
         <FluentNavMenu Id="main-menu" Width="250" Collapsible="true" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
             <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
-            <FluentNavLink Href="counter" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Counter</FluentNavLink>
-            <FluentNavLink Href="fetchdata" Icon="@(new Icons.Regular.Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Weather</FluentNavLink>
+            @foreach(var item in menuItem) {
+                <FluentNavLink Href="@item.Url" Icon="@item.Icon" IconColor="Color.Accent">@item.Name</FluentNavLink>
+            }   
         </FluentNavMenu>
     </nav>
 </div>
@@ -15,4 +16,34 @@
 @code {
     private bool expanded = true;
 
+    static List<MenuItem> menuItem = Preenche();
+
+    static List<MenuItem> Preenche() {
+        List<MenuItem> r = new List<MenuItem>();
+        Type[] typelist = GetTypesInNamespace(System.Reflection.Assembly.GetExecutingAssembly(), typeof(NavMenu).FullName!.Replace("Layouts.NavMenu","MainMenu"));
+
+        foreach (var t in typelist) {
+            var router = (Microsoft.AspNetCore.Components.RouteAttribute?)t?.GetCustomAttributes(typeof(Microsoft.AspNetCore.Components.RouteAttribute), false)?.FirstOrDefault();
+            if (router != null) {
+                string? name = t.GetMethod("MenuName")?.Invoke(null, null)?.ToString();
+                Icon? icon = (Icon?)t.GetMethod("MenuIcon")?.Invoke(null, null);
+                if (icon!=null && name!=null) r.Add(new MenuItem { Name = name, Icon = icon, Url = router.Template });
+            }
+        }
+        return r;
+    }
+
+    static private Type[] GetTypesInNamespace(System.Reflection.Assembly assembly, string nameSpace) {
+        return
+          assembly.GetTypes()
+              .Where(t => String.Equals(t.Namespace, nameSpace, StringComparison.Ordinal))
+              .ToArray();
+    }
+
+
+    class MenuItem {
+        public string? Name { get; set; }
+        public Icon? Icon { get; set; }
+        public string? Url { get; set; }
+    }
 }
